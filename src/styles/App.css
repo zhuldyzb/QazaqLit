@@ -1,0 +1,338 @@
+/* App.css - Main styling for the QazaqLit Visualization */
+
+/* Global Variables */
+:root {
+  /* Color Palette */
+  --background-primary: #fcfaf5;
+  --background-secondary: #f5f1e6;
+  --text-primary: #1a1a1a;
+  --text-secondary: #5a5a5a;
+  --accent-primary: #694e4e;
+  --accent-secondary: #a67f5d;
+  --highlight: #d4a373;
+  --data-color-1: #264653;
+  --data-color-2: #2a9d8f;
+  --data-color-3: #e9c46a;
+  --data-color-4: #f4a261;
+  --data-color-5: #e76f51;
+  --data-color-6: #bc4749;
+  --data-color-7: #6a994e;
+  --data-color-8: #386641;
+  --data-color-9: #073b4c;
+  --data-color-10: #457b9d;
+  --data-color-11: #7b2cbf;
+  --data-color-12: #3f37c9;
+  --data-color-13: #1b263b;
+  
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Source Serif Pro', serif;
+  --font-accent: 'DM Sans', sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-xxl: 5rem;
+  
+  /* Max width for content */
+  --max-width: 1200px;
+  --reading-width: 800px;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Add this to your index.css or App.css file */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+.site-footer {
+  margin-top: auto;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Make sure there's no padding or margin on the last section */
+section:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-top: var(--spacing-xl);
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+  font-size: 1.125rem;
+}
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-secondary);
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Layout */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.visualization-section {
+  padding: var(--spacing-xl) 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-column {
+  max-width: var(--reading-width);
+  margin: 0 auto;
+}
+
+.full-width {
+  width: 100%;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: var(--spacing-xl) calc((100vw - var(--max-width)) / 2);
+  background-color: var(--background-secondary);
+}
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--background-secondary);
+  border-top: 5px solid var(--accent-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--spacing-md);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Visualization Containers */
+.visualization-container {
+  width: 100%;
+  min-height: 500px;
+  margin: var(--spacing-lg) 0;
+  position: relative;
+}
+
+.vis-heading {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.vis-heading h2 {
+  margin: 0;
+  margin-right: var(--spacing-md);
+}
+
+.vis-description {
+  max-width: var(--reading-width);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Scrollytelling */
+.sticky-graphic {
+  position: sticky;
+  top: 20vh;
+  height: 60vh;
+  width: 100%;
+}
+
+.step-container {
+  margin-top: 60vh; /* Same as sticky-graphic height */
+  padding-bottom: 40vh;
+}
+
+.step {
+  height: 50vh;
+  margin-bottom: var(--spacing-xl);
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Annotations */
+.annotation {
+  font-family: var(--font-accent);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.annotation-line {
+  stroke: var(--text-secondary);
+  stroke-width: 1px;
+  stroke-dasharray: 3, 3;
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  font-family: var(--font-accent);
+  font-size: 0.875rem;
+  z-index: 10;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.control-button {
+  background-color: var(--background-secondary);
+  border: 1px solid var(--text-secondary);
+  border-radius: 4px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-family: var(--font-accent);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.control-button:hover,
+.control-button.active {
+  background-color: var(--accent-primary);
+  color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  :root {
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .visualization-container {
+    min-height: 400px;
+  }
+  
+  .sticky-graphic {
+    height: 50vh;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  p {
+    font-size: 1rem;
+  }
+  
+  .visualization-container {
+    min-height: 300px;
+  }
+}

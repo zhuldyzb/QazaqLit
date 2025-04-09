@@ -1,0 +1,13 @@
+.topic-overview {
+    padding-top: var(--spacing-xl);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .bubble-chart {
+    width: 100%;
+    height: 600px;
+  }
+  

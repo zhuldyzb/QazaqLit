@@ -1,0 +1,17 @@
+.author-topic-distribution {
+    padding-top: var(--spacing-xl);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .author-chart-container {
+    overflow-y: auto;
+    max-height: 600px;
+  }
+  
+  .author-chart {
+    width: 100%;
+    min-height: 600px;
+  }
