@@ -19,6 +19,12 @@
     "styled-components": "^6.1.17",
     "web-vitals": "^2.1.4"
   },
+  {
+  "name": "QazaqLit",
+  "version": "0.1.0",
+  "homepage": "https://zhuldyzb.github.io/QazaqLit",
+  ...
+}
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
